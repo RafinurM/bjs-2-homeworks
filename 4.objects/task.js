@@ -18,12 +18,17 @@ Student.prototype.addMarks = function (...rest) {
   this.marks = [...rest];
 };
 
-let average = 0;
+
 Student.prototype.getAverage = function (marks) {
-  this.marks.forEach((item) => {
-    average = average + item
+  const average = this.marks.reduce((acc, item, idx, arr) => {
+    if (idx === arr.length - 1) {
+      return (acc + item) / arr.length;
+    } else {
+      return acc + item
+    }
+    
   })
-  return average/this.marks.length 
+  return average
 };
 
 Student.prototype.exclude = function (reason) {
