@@ -1,18 +1,12 @@
 function compareArrays(arr1, arr2) {
-  let result;
   if (arr1.length === arr2.length) {
-    for (let i = 0; i < arr1.length; i++) {
-      if (arr1[i] === arr2[i]) {
-        result = true;
-      } else {
-        result = false;
-      };
-    };
-  } else {
-    result = false;
-  };
-
-  return result;
+    
+  return arr1.every((currentValue, index) => {
+    return currentValue === arr2[index]
+  })
+} else {
+  return false
+}
 }
 
 
